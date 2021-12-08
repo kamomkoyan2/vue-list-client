@@ -12,6 +12,34 @@
         </div>
 
         <vee-form :validation-schema="schema" @submit="register">
+          <!-- First Name -->
+          <div>
+            <label for="First Name" class="text-xs text-gray-500"
+              >First Name</label
+            >
+            <vee-field
+              name="firstname"
+              id="firstname"
+              class="bg-transparent border-b m-auto block border-gray-500 w-full mb-6 text-gray-700 pb-1 focus:outline-none"
+              type="text"
+              placeholder=""
+            />
+            <ErrorMessage class="text-red-600" name="firstname" />
+          </div>
+          <!-- Last Name -->
+          <div>
+            <label for="Last Name" class="text-xs text-gray-500"
+              >Last Name</label
+            >
+            <vee-field
+              name="lastname"
+              id="lastname"
+              class="bg-transparent border-b m-auto block border-gray-500 w-full mb-6 text-gray-700 pb-1 focus:outline-none"
+              type="text"
+              placeholder=""
+            />
+            <ErrorMessage class="text-red-600" name="Last Name" />
+          </div>
           <!-- Username -->
           <div>
             <label for="username" class="text-xs text-gray-500">Username</label>
