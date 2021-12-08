@@ -46,7 +46,7 @@
             type="submit"
             value="Create account"
           >
-            Create Account
+            Login
           </button>
         </vee-form>
         <div class="text-center mt-4">

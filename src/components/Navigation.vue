@@ -10,9 +10,7 @@
             <router-link :to="{ name: 'Home' }">
               <span class="sr-only">Workflow</span>
               <img
-                class="h-8 w-auto sm:h-10"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                alt=""
+                src="https://img.icons8.com/ios-glyphs/30/000000/link--v1.png"
             /></router-link>
           </a>
         </div>
