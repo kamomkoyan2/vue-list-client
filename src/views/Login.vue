@@ -1,6 +1,6 @@
 <template>
   <div class="grid justify-items-center flex-shrink md:flex-shrink-0">
-    <div class="w-3/5 bg-white">
+    <div class="w-2/5 bg-white">
       <div class="p-8">
         <!--alert message-->
         <div
@@ -46,7 +46,7 @@
             type="submit"
             value="Create account"
           >
-            Create Account
+            Login
           </button>
         </vee-form>
         <div class="text-center mt-4">
