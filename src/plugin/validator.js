@@ -32,21 +32,19 @@ export default {
     defineRule("min_value", minVal);
     defineRule("max_value", maxVal);
     defineRule("excluded", excluded);
-    defineRule("country_excluded", excluded);
     defineRule("password_mismatch", confirmed);
 
     configure({
       generateMessage: (context) => {
         const messages = {
-          required: `This field ${context.field} is required.`,
-          min: `This field ${context.field} is too short.`,
-          max: `This field ${context.field} is too long.`,
-          alpha_spaces: `This field ${context.field} can only contain letters and spaces.`,
+          required: `${context.field} is required.`,
+          min: `${context.field} is too short.`,
+          max: `${context.field} is too long.`,
+          alpha_spaces: `${context.field} can only contain letters and spaces.`,
           email: `This field ${context.field} is not a valid email.`,
           min_value: `This field ${context.field} is too low.`,
           max_value: `This field ${context.field} is too high.`,
           excluded: "This field is not allowed.",
-          country_excluded: "We do not allow users from this location",
           password_mismatch: `This field ${context.field} does not match.`,
         };
         const message = messages[context.rule.name]

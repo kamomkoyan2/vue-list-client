@@ -9,6 +9,9 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    meta: {
+      title: "Home",
+    },
   },
 
   {
@@ -16,13 +19,16 @@ const routes = [
     name: "Register",
     component: Register,
     meta: {
-      title: "_exampleTitle",
+      title: "Register",
     },
   },
   {
     path: "/login",
     name: "Login",
     component: Login,
+    meta: {
+      title: "Login",
+    },
   },
   {
     path: "/:catchAll(.*)",
@@ -36,4 +42,8 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title} | ListApp`;
+  next();
+});
 export default router;

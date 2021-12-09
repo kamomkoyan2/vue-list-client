@@ -11,40 +11,40 @@
           {{ reg_alert_msg }}
         </div>
 
-        <vee-form :validation-schema="schema" @submit="register">
+        <vee-form :validation-schema="schema">
           <!-- First Name -->
           <div>
             <label for="First Name" class="text-xs text-gray-500"
               >First Name</label
             >
-            <vee-field
-              name="firstname"
-              id="firstname"
+            <input
+              v-model="firstName"
+              id="firstName"
               class="bg-transparent border-b m-auto block border-gray-500 w-full mb-6 text-gray-700 pb-1 focus:outline-none"
               type="text"
               placeholder=""
             />
-            <ErrorMessage class="text-red-600" name="firstname" />
+            <ErrorMessage class="text-red-600" name="firstName" />
           </div>
           <!-- Last Name -->
           <div>
             <label for="Last Name" class="text-xs text-gray-500"
               >Last Name</label
             >
-            <vee-field
-              name="lastname"
-              id="lastname"
+            <input
+              v-model="lastName"
+              id="lastName"
               class="bg-transparent border-b m-auto block border-gray-500 w-full mb-6 text-gray-700 pb-1 focus:outline-none"
               type="text"
               placeholder=""
             />
-            <ErrorMessage class="text-red-600" name="Last Name" />
+            <ErrorMessage class="text-red-600" name="lastName" />
           </div>
           <!-- Username -->
           <div>
             <label for="username" class="text-xs text-gray-500">Username</label>
-            <vee-field
-              name="username"
+            <input
+              v-model="username"
               id="username"
               class="bg-transparent border-b m-auto block border-gray-500 w-full mb-6 text-gray-700 pb-1 focus:outline-none"
               type="text"
@@ -55,9 +55,8 @@
           <!-- Password -->
           <div>
             <label id="password" class="text-xs text-gray-500">Password</label>
-            <vee-field
-              id="password"
-              name="password"
+            <input
+              v-model="password"
               class="bg-transparent border-b m-auto block border-gray-500 w-full mb-6 text-grey-700 pb-1 focus:outline-none"
               type="password"
               placeholder=""
@@ -66,10 +65,9 @@
           </div>
           <button
             :disabled="reg_in_submission"
-            @click="signUp"
+            @click.prevent="signUp"
             class="shadow-lg mt-3 pt-3 pb-3 w-full text-white bg-indigo-500 hover:bg-indigo-400 rounded-full cursor-pointer"
             type="submit"
-            value="Create account"
           >
             Create Account
           </button>
@@ -92,14 +90,18 @@
 <script>
 import AuthService from "../services/AuthService";
 export default {
-  name: "Regiser",
+  name: "Register",
   data() {
     return {
+      firstName: "",
+      lastName: "",
       username: "",
       password: "",
       schema: {
         username: "required|min:3|max:50|alpha_spaces",
         password: "required",
+        firstName: "required",
+        lastName: "required",
       },
       reg_in_submission: false,
       reg_show_alert: false,
@@ -114,20 +116,22 @@ export default {
       this.reg_alert_variant = "bg-indigo-500";
       this.reg_alert_msg = "Please wait! Your account is being created.";
       this.reg_alert_variant = "bg-blue-500";
-      this.reg_alert_msg = "Success! Your account has been created.";
+      // this.reg_alert_msg = "Success! Your account has been created.";
       console.log(values);
     },
     async signUp() {
       try {
         const credentials = {
+          firstName: this.firstName,
+          lastName: this.lastName,
           username: this.username,
           password: this.password,
         };
         const response = await AuthService.signUp(credentials);
-        this.msg = response.msg;
+        console.log(response);
         this.$router.push("/");
       } catch (error) {
-        this.msg = error.response.data.msg;
+        console.log(error);
       }
     },
   },

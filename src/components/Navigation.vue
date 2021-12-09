@@ -210,13 +210,16 @@
           </Popover>
         </PopoverGroup>
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <h1><span>Welcome </span> {{ username }}</h1>
           <router-link
             :to="{ name: 'Login' }"
+            v-if="isLogged === false"
             class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
           >
             Sign in
           </router-link>
           <router-link
+            v-if="isLogged === false"
             :to="{ name: 'Register' }"
             class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
           >
@@ -329,6 +332,8 @@
 </template>
 
 <script>
+import AuthService from "../services/AuthService";
+
 import {
   Popover,
   PopoverButton,
@@ -429,6 +434,7 @@ const recentPosts = [
 ];
 
 export default {
+  name: "Navigation",
   components: {
     Popover,
     PopoverButton,
@@ -438,6 +444,20 @@ export default {
     MenuIcon,
     XIcon,
   },
+  data() {
+    return {
+      username: "",
+    };
+  },
+  async created() {
+    if (!this.$store.getters.isLoggedIn) {
+      this.$router.push("/login");
+    }
+    this.username = this.$store.getters.getUser.username;
+    this.secretMessage = await AuthService.getSecretContent();
+  },
+  methods: {},
+
   setup() {
     return {
       solutions,

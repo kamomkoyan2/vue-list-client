@@ -11,16 +11,12 @@
           {{ reg_alert_msg }}
         </div>
 
-        <vee-form
-          :validation-schema="schema"
-          @submit="register"
-          :initial-values="userData"
-        >
+        <vee-form :validation-schema="schema">
           <!-- Username -->
           <div>
             <label for="username" class="text-xs text-gray-500">Username</label>
-            <vee-field
-              name="username"
+            <input
+              v-model="username"
               id="username"
               class="bg-transparent border-b m-auto block border-gray-500 w-full mb-6 text-gray-700 pb-1 focus:outline-none"
               type="text"
@@ -31,9 +27,8 @@
           <!-- Password -->
           <div>
             <label id="password" class="text-xs text-gray-500">Password</label>
-            <vee-field
-              id="password"
-              name="password"
+            <input
+              v-model="password"
               class="bg-transparent border-b m-auto block border-gray-500 w-full mb-6 text-grey-700 pb-1 focus:outline-none"
               type="password"
               placeholder=""
@@ -42,9 +37,10 @@
           </div>
           <button
             :disabled="reg_in_submission"
+            @click.prevent="login"
             class="shadow-lg mt-3 pt-3 pb-3 w-full text-white bg-indigo-500 hover:bg-indigo-400 rounded-full cursor-pointer"
             type="submit"
-            value="Create account"
+            value="Login"
           >
             Login
           </button>
@@ -65,20 +61,17 @@
 </template>
 
 <script>
+import AuthService from "../services/AuthService";
+
 export default {
   name: "Login",
   data() {
     return {
+      username: "",
+      password: "",
       schema: {
         username: "required|min:3|max:50|alpha_spaces",
-        email: "required|min:3|max:20|email",
-        age: "required|min_value:1|max_value:100",
         password: "required",
-        password_confirmation: "password_mismatch:@password",
-        country: "required|country_excluded:Africa",
-      },
-      userData: {
-        country: "USA",
       },
       reg_in_submission: false,
       reg_show_alert: false,
@@ -95,6 +88,24 @@ export default {
       this.reg_alert_variant = "bg-blue-500";
       this.reg_alert_msg = "Success! Your account has been created.";
       console.log(values);
+    },
+
+    async login() {
+      try {
+        const credentials = {
+          username: this.username,
+          password: this.password,
+        };
+        const response = await AuthService.login(credentials);
+
+        const token = response.token;
+        const user = response.user;
+
+        this.$store.dispatch("login", { token, user });
+        this.$router.push("/");
+      } catch (error) {
+        console.log(error.message);
+      }
     },
   },
 };
