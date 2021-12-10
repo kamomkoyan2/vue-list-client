@@ -1,7 +1,8 @@
 import Axios from "axios";
 
 export default {
-  login: ({ commit }, { token, user }) => {
+  // eslint-disable-next-line no-unused-vars
+  login: ({ commit, dispatch }, { token, user }) => {
     commit("SET_TOKEN", token);
     commit("SET_USER", user);
     // set auth header

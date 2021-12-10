@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen justify-center">
     <Navigation v-if="!navigation" />
-    <router-view />
+    <router-view></router-view>
     <Footer v-if="!navigation" />
   </div>
 </template>
