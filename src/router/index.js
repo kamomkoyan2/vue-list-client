@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import NotFound from "../views/NotFound";
+import UserSettings from "../views/UserSettings";
 
 const routes = [
   {
@@ -13,7 +14,14 @@ const routes = [
       title: "Home",
     },
   },
-
+  {
+    path: "/settings",
+    name: "UserSettings",
+    component: UserSettings,
+    mata: {
+      title: "User Settings",
+    },
+  },
   {
     path: "/register",
     name: "Register",
@@ -43,7 +51,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  document.title = `${to.meta.title} | ListApp`;
+  document.title = `${to.meta.title} | List App`;
   next();
 });
 export default router;
