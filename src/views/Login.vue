@@ -2,6 +2,9 @@
   <div class="grid justify-items-center flex-shrink md:flex-shrink-0">
     <div class="w-2/5 bg-white">
       <div class="p-8">
+        <div class="grid justify-items-center">
+          <h1 class="text-2xl">Login</h1>
+        </div>
         <!--alert message-->
         <div
           class="shadow-lg mt-3 pt-3 pb-3 w-full text-white text-center hover:bg-indigo-400 rounded-full cursor-pointer"

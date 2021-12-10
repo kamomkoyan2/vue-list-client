@@ -209,17 +209,116 @@
             </transition>
           </Popover>
         </PopoverGroup>
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <h1><span>Welcome </span> {{ username }}</h1>
+        <div
+          v-if="this.$store.getters.isLoggedIn"
+          class="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
+        >
+          <Menu as="div" class="relative inline-block text-left">
+            <div>
+              <MenuButton
+                class="inline-flex justify-center z-100 w-full rounded-md border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+              >
+                {{ username }}
+                <img
+                  class="inline h-6 rounded-full"
+                  src="https://avatars2.githubusercontent.com/u/24622175?s=60&amp;v=4"
+                />
+                <ChevronDownIcon
+                  class="-mr-1 ml-2 h-5 w-5"
+                  aria-hidden="true"
+                />
+              </MenuButton>
+            </div>
+
+            <transition
+              enter-active-class="transition ease-out duration-100"
+              enter-from-class="transform opacity-0 scale-95"
+              enter-to-class="transform opacity-100 scale-100"
+              leave-active-class="transition ease-in duration-75"
+              leave-from-class="transform opacity-100 scale-100"
+              leave-to-class="transform opacity-0 scale-95"
+            >
+              <MenuItems
+                class="origin-top-right z-50 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              >
+                <div class="py-1">
+                  <MenuItem v-slot="{ active }">
+                    <a
+                      class="flex justify-between"
+                      href="/settings"
+                      :class="[
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      ]"
+                      >Account settings<i class="fas fa-user-circle"></i
+                    ></a>
+                  </MenuItem>
+                  <MenuItem v-slot="{ active }">
+                    <a
+                      class="flex justify-between"
+                      href="#"
+                      :class="[
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      ]"
+                      >Support<i class="fas fa-question-circle"></i
+                    ></a>
+                  </MenuItem>
+                  <MenuItem v-slot="{ active }">
+                    <a
+                      href="#"
+                      :class="[
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      ]"
+                      class="flex items-center bg-inherit justify-between text-black w-full"
+                    >
+                      Create List <i class="fas fa-plus"></i>
+                    </a>
+                  </MenuItem>
+                  <MenuItem v-slot="{ active }">
+                    <a
+                      class="flex justify-between"
+                      href="#"
+                      :class="[
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      ]"
+                      >License <i class="fas fa-id-badge"></i>
+                    </a>
+                  </MenuItem>
+                  <form method="POST" action="#">
+                    <MenuItem v-slot="{ active }">
+                      <button
+                        class="flex justify-between"
+                        type="submit"
+                        value="Logout"
+                        @click="logout"
+                        :class="[
+                          active
+                            ? 'bg-gray-100 text-gray-900'
+                            : 'text-gray-700',
+                          'block w-full text-left px-4 py-2 text-sm',
+                        ]"
+                      >
+                        Sign out <i class="fas fa-sign-out-alt"></i>
+                      </button>
+                    </MenuItem>
+                  </form>
+                </div>
+              </MenuItems>
+            </transition>
+          </Menu>
+        </div>
+        <div v-else-if="!this.$store.getters.isLoggedIn">
           <router-link
             :to="{ name: 'Login' }"
-            v-if="isLogged === false"
             class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
           >
             Sign in
           </router-link>
           <router-link
-            v-if="isLogged === false"
+            v-if="!this.$store.getters.isLoggedIn"
             :to="{ name: 'Register' }"
             class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
           >
@@ -239,7 +338,7 @@
     >
       <PopoverPanel
         focus
-        class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+        class="absolute top-0 z-50 inset-x-0 p-2 transition transform origin-top-right md:hidden"
       >
         <div
           class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50"
@@ -339,6 +438,10 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
 } from "@headlessui/vue";
 import {
   BookmarkAltIcon,
@@ -440,23 +543,34 @@ export default {
     PopoverButton,
     PopoverGroup,
     PopoverPanel,
-    ChevronDownIcon,
     MenuIcon,
     XIcon,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    ChevronDownIcon,
   },
   data() {
     return {
       username: "",
+      firstName: "",
     };
   },
   async created() {
     if (!this.$store.getters.isLoggedIn) {
-      this.$router.push("/login");
+      this.$router.push("/");
     }
     this.username = this.$store.getters.getUser.username;
+    this.firstName = this.$store.getters.getUser.firstName;
     this.secretMessage = await AuthService.getSecretContent();
   },
-  methods: {},
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push('/login');
+    },
+  },
 
   setup() {
     return {

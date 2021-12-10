@@ -2,7 +2,9 @@
   <div class="grid justify-items-center flex-shrink md:flex-shrink-0">
     <div class="w-2/5 bg-white">
       <div class="p-8">
-        <!--alert message-->
+        <div class="grid justify-items-center">
+          <h1 class="text-2xl">Register</h1>
+        </div>
         <div
           class="shadow-lg mt-3 pt-3 pb-3 w-full text-white text-center hover:bg-indigo-400 rounded-full cursor-pointer"
           v-if="reg_show_alert"
@@ -19,12 +21,11 @@
             >
             <input
               v-model="firstName"
-              id="firstName"
               class="bg-transparent border-b m-auto block border-gray-500 w-full mb-6 text-gray-700 pb-1 focus:outline-none"
               type="text"
               placeholder=""
             />
-            <ErrorMessage class="text-red-600" name="firstName" />
+            <ErrorMessage class="text-red-600" name="first Name" />
           </div>
           <!-- Last Name -->
           <div>
@@ -107,6 +108,7 @@ export default {
       reg_show_alert: false,
       reg_alert_variant: "bg-indigo-500",
       reg_alert_message: "Please wait! Account is being registered.",
+      reg_alert_msg: "",
     };
   },
   methods: {
@@ -116,7 +118,7 @@ export default {
       this.reg_alert_variant = "bg-indigo-500";
       this.reg_alert_msg = "Please wait! Your account is being created.";
       this.reg_alert_variant = "bg-blue-500";
-      // this.reg_alert_msg = "Success! Your account has been created.";
+      this.reg_alert_msg = "Success! Your account has been created.";
       console.log(values);
     },
     async signUp() {
@@ -129,7 +131,7 @@ export default {
         };
         const response = await AuthService.signUp(credentials);
         console.log(response);
-        this.$router.push("/");
+        this.$router.push("/login");
       } catch (error) {
         console.log(error);
       }
