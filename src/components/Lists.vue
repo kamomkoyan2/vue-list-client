@@ -7,8 +7,10 @@
           class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200"
         >
           <div class="relative w-full h-80 md:h-64 lg:h-44">
-            <img
-              src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+            <app-image
+              src="https://www.porcelanosa-usa.com/products/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/100272876_2.jpg"
+              lazy-src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+              lazy-srcset="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I 4x"
               alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
               class="w-full h-full object-center object-cover"
             />
@@ -32,8 +34,10 @@
           class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200"
         >
           <div class="relative w-full h-80 md:h-64 lg:h-44">
-            <img
-              src="https://i.picsum.photos/id/180/2400/1600.jpg?hmac=Ig-CXcpNdmh51k3kXpNqNqcDYTwXCIaonYiBOnLXBb8"
+            <app-image
+              src="https://www.porcelanosa-usa.com/products/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/100272876_2.jpg"
+              lazy-src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+              lazy-srcset="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I 2x"
               alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
               class="w-full h-full object-center object-cover"
             />
@@ -57,8 +61,10 @@
           class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200"
         >
           <div class="relative w-full h-80 md:h-64 lg:h-44">
-            <img
-              src="https://i.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU"
+            <app-image
+              src="https://www.porcelanosa-usa.com/products/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/100272876_2.jpg"
+              lazy-src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+              lazy-srcset="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I 2x"
               alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
               class="w-full h-full object-center object-cover"
             />
@@ -82,8 +88,10 @@
           class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200"
         >
           <div class="relative w-full h-80 md:h-64 lg:h-44">
-            <img
-              src="https://i.picsum.photos/id/1082/5416/3611.jpg?hmac=GrASx5oGYbTwT4xyJDYkurgXFFfgj37WHvaJNe8Sr1E"
+            <app-image
+              src="https://www.porcelanosa-usa.com/products/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/100272876_2.jpg"
+              lazy-src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+              lazy-srcset="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I 2x"
               alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
               class="w-full h-full object-center object-cover"
             />
@@ -107,8 +115,10 @@
           class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200"
         >
           <div class="relative w-full h-80 md:h-64 lg:h-44">
-            <img
-              src="https://i.picsum.photos/id/1070/5472/3648.jpg?hmac=oFxAwLeGJmas45_yf5NdpeQzexAF-tMVL6q9JwvSuo0"
+            <app-image
+              src="https://www.porcelanosa-usa.com/products/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/100272876_2.jpg"
+              lazy-src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+              lazy-srcset="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I 2x"
               alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
               class="w-full h-full object-center object-cover"
             />
@@ -132,8 +142,10 @@
           class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200"
         >
           <div class="relative w-full h-80 md:h-64 lg:h-44">
-            <img
-              src="https://i.picsum.photos/id/1060/5598/3732.jpg?hmac=31kU0jp5ejnPTdEt-8tAXU5sE-buU-y1W1qk_BsiUC8"
+            <app-image
+              src="https://www.porcelanosa-usa.com/products/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/100272876_2.jpg"
+              lazy-src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+              lazy-srcset="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I 2x"
               alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
               class="w-full h-full object-center object-cover"
             />
@@ -157,8 +169,10 @@
           class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200"
         >
           <div class="relative w-full h-80 md:h-64 lg:h-44">
-            <img
-              src="https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+            <app-image
+              src="https://www.porcelanosa-usa.com/products/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/100272876_2.jpg"
+              lazy-src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+              lazy-srcset="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I 2x"
               alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
               class="w-full h-full object-center object-cover"
             />
@@ -182,8 +196,10 @@
           class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200"
         >
           <div class="relative w-full h-80 md:h-64 lg:h-44">
-            <img
-              src="https://i.picsum.photos/id/232/3000/1987.jpg?hmac=f8y2eAXUUB5pUL5uXYYdXFcLfWLPGiyNuSfVeCN-R0I"
+            <app-image
+              src="https://www.porcelanosa-usa.com/products/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/100272876_2.jpg"
+              lazy-src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
+              lazy-srcset="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I 2x"
               alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
               class="w-full h-full object-center object-cover"
             />
@@ -209,8 +225,12 @@
 </template>
 
 <script>
+import AppImage from "./LazyLoading.vue";
 export default {
   name: "Lists",
+  components: {
+    AppImage,
+  },
   data() {
     return {
       msg: "Welcome to my Vuex Store Getter example",
