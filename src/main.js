@@ -5,10 +5,16 @@ import VeeValidatePlugin from "./plugin/validator";
 import router from "./router";
 import store from "./store";
 import "../node_modules/nprogress/nprogress.css";
+import lazyPlugin from "vue3-lazy";
 import "./main.css";
 import Axios from "axios";
 
 const app = createApp(App);
+
+app.use(lazyPlugin, {
+  loading: "loading.png",
+  error: "error.png",
+});
 
 // set auth header
 Axios.defaults.headers.common["Authorization"] = `Bearer ${store.state.token}`;
