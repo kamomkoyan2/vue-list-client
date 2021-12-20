@@ -210,7 +210,7 @@
           </Popover>
         </PopoverGroup>
         <div
-          v-if="this.$store.getters.isLoggedIn"
+          v-if="token"
           class="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
         >
           <Menu as="div" class="relative inline-block text-left">
@@ -218,7 +218,7 @@
               <MenuButton
                 class="inline-flex justify-center z-100 w-full rounded-md border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
               >
-                {{ username }}
+<!--                {{ user.username }}-->
                 <img
                   class="inline h-6 rounded-full"
                   src="https://avatars2.githubusercontent.com/u/24622175?s=60&amp;v=4"
@@ -250,8 +250,8 @@
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       ]"
-                      >Account settings<i class="fas fa-user-circle"></i
-                    ></a>
+                      >Account settings <font-awesome-icon icon="user-circle"
+                    /></a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
                     <a
@@ -261,19 +261,19 @@
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       ]"
-                      >Support<i class="fas fa-question-circle"></i
-                    ></a>
+                      >Support <font-awesome-icon icon="question-circle"
+                    /></a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
                     <a
-                      href="#"
+                      href="/create-list"
                       :class="[
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       ]"
                       class="flex items-center bg-inherit justify-between text-black w-full"
                     >
-                      Create List <i class="fas fa-plus"></i>
+                      Create List <font-awesome-icon icon="plus" />
                     </a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
@@ -284,7 +284,7 @@
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       ]"
-                      >License <i class="fas fa-id-badge"></i>
+                      >License <font-awesome-icon icon="id-badge" />
                     </a>
                   </MenuItem>
                   <form method="POST" action="#">
@@ -301,7 +301,7 @@
                           'block w-full text-left px-4 py-2 text-sm',
                         ]"
                       >
-                        Sign out <i class="fas fa-sign-out-alt"></i>
+                        Sign out <font-awesome-icon icon="sign-out-alt" />
                       </button>
                     </MenuItem>
                   </form>
@@ -310,7 +310,7 @@
             </transition>
           </Menu>
         </div>
-        <div v-else-if="!this.$store.getters.isLoggedIn">
+        <div v-else>
           <router-link
             :to="{ name: 'Login' }"
             class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
@@ -431,7 +431,7 @@
 </template>
 
 <script>
-import AuthService from "../services/AuthService";
+import { mapGetters } from "vuex";
 
 import {
   Popover,
@@ -551,24 +551,17 @@ export default {
     MenuItems,
     ChevronDownIcon,
   },
-  data() {
-    return {
-      username: "",
-      firstName: "",
-    };
-  },
-  async created() {
-    if (!this.$store.getters.isLoggedIn) {
-      this.$router.push("/");
-    }
-    this.username = this.$store.getters.getUser.username;
-    this.firstName = this.$store.getters.getUser.firstName;
-    this.secretMessage = await AuthService.getSecretContent();
+  computed: {
+    ...mapGetters({
+      user: "user/getUser",
+      token: "user/token",
+    }),
   },
   methods: {
     logout() {
       this.$store.dispatch("logout");
-      this.$router.push('/login');
+      localStorage.removeItem('token');
+      this.$router.push("/auth/login");
     },
   },
 

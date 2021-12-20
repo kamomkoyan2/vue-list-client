@@ -1,17 +1,16 @@
 const getDefaultState = () => {
   return {
-    token: "",
-    user: {},
+    userId: "",
+    list: {},
   };
 };
 
 export default {
   SET_TOKEN: (state, token) => {
     state.token = token;
-    localStorage.setItem("token", token);
   },
-  SET_USER: (state, user) => {
-    state.user = user;
+  SET_LIST: (state, list) => {
+    state.list = list;
   },
   RESET: (state) => {
     Object.assign(state, getDefaultState());

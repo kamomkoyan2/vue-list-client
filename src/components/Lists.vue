@@ -1,5 +1,6 @@
 <template>
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 mt-20 mb-20">
+    {{user}}
     <article>
       <h2 class="text-2xl font-extrabold text-gray-900">OUR LISTS</h2>
       <section class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
@@ -226,10 +227,16 @@
 
 <script>
 import AppImage from "./LazyLoading.vue";
+import {mapGetters} from "vuex"
 export default {
   name: "Lists",
   components: {
     AppImage,
+  },
+  computed: {
+    ...mapGetters({
+      user: 'list/getList'
+    })
   },
   data() {
     return {

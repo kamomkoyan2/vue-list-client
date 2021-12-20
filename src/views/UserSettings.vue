@@ -10,7 +10,7 @@
         class="flex flex-col justify-center items-center relative h-full bg-black bg-opacity-50 text-white"
       >
         <img class="h-24 w-24 object-cover rounded-full" />
-        <h1 class="text-2xl font-semibold">{{ firstName }} {{lastName}}</h1>
+        <h1 class="text-2xl font-semibold">{{ firstName }} {{ lastName }}</h1>
         <h4 class="text-sm font-semibold">Joined Since '19</h4>
       </div>
     </div>
@@ -68,29 +68,18 @@
                   disabled
                 />
               </div>
-            </div>
-
-            <div
-              class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4"
-            >
-              <div class="form-item w-full">
-                <label class="text-xl">Username</label>
-                <input
-                  type="text"
-                  v-model="username"
-                  class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25"
-                  disabled
-                />
-              </div>
-
-              <div class="form-item w-full">
-                <label class="text-xl">Email</label>
-                <input
-                  type="text"
-                  value="antoniaph@gmail.com"
-                  class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25"
-                  disabled
-                />
+              <div
+                class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4"
+              >
+                <div class="form-item w-full">
+                  <label class="text-xl">Username</label>
+                  <input
+                    type="text"
+                    v-model="username"
+                    class="w-full appearance-none text-black text-opacity-50 rounded shadow py-1 px-2 mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200 text-opacity-25"
+                    disabled
+                  />
+                </div>
               </div>
             </div>
 

@@ -8,8 +8,36 @@ import "../node_modules/nprogress/nprogress.css";
 import lazyPlugin from "vue3-lazy";
 import "./main.css";
 import Axios from "axios";
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faUserSecret,
+  faUserTie,
+  faAt,
+  faUser,
+  faSignOutAlt,
+  faUserCircle,
+  faPlus,
+  faIdBadge,
+  faQuestionCircle,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(
+  faUserSecret,
+  faUserTie,
+  faAt,
+  faUser,
+  faSignOutAlt,
+  faUserCircle,
+  faPlus,
+  faIdBadge,
+  faQuestionCircle
+);
 
 const app = createApp(App);
+app.component("font-awesome-icon", FontAwesomeIcon);
 
 app.use(lazyPlugin, {
   loading: "loading.png",
