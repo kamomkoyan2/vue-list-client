@@ -1,55 +1,41 @@
 <template>
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 mt-20 mb-20">
-    <article>
-      <h2 class="text-2xl font-extrabold text-gray-900">OUR LISTS</h2>
+  <div class="p-10 grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8" style="
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+">
+  <div v-for="list in lists" :key="list" class="p-4 grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-12">
+    <!--Card 1-->
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMypZGy2gePk1YPlIdQG1KcIyDQ8sISXsSHg&usqp=CAU" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">{{ list.title }}</div>
+        <p class="text-gray-700 text-base">
+          {{
+            list.content
+          }}
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+      </div>
+    </div>
 
-      <section
-        v-for="list in lists"
-        :key="list"
-        class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8"
-      >
-        <article
-          class="bg-white group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200"
-        >
-          <div class="relative w-full h-80 md:h-64 lg:h-44">
-            <app-image
-              src="https://www.porcelanosa-usa.com/products/pub/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/100272876_2.jpg"
-              lazy-src="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
-              lazy-srcset="https://i.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I 4x"
-              alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
-              class="w-full h-full object-center object-cover"
-            />
-          </div>
-          <div class="px-3 py-4">
-            <h3 class="text-sm text-gray-500 pb-2">
-              <a class="bg-indigo-600 py-1 px-2 text-white rounded-lg" href="#">
-                <span class="absolute inset-0"></span>
-                {{ list.user[0].title }}
-              </a>
-            </h3>
-            <p
-              class="text-base font-semibold text-gray-900 group-hover:text-indigo-600"
-            >
-              {{ list.user[0].content }}
-            </p>
-          </div>
-        </article>
-      </section>
-    </article>
-  </section>
+
+  </div>
+  </div>
 </template>
 
 <script>
-import AppImage from "./LazyLoading.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "Lists",
-  components: {
-    AppImage,
-  },
+
   computed: {
     ...mapGetters({
       lists: "list/getLists",
+      user: "user/getUser",
     }),
   },
   data() {
