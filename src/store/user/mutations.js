@@ -1,10 +1,3 @@
-const getDefaultState = () => {
-  return {
-    token: "",
-    user: {},
-  };
-};
-
 export default {
   SET_TOKEN: (state, token) => {
     state.token = token;
@@ -12,8 +5,12 @@ export default {
   },
   SET_USER: (state, user) => {
     state.user = user;
+    localStorage.setItem("user", JSON.stringify(user));
   },
-  RESET: (state) => {
-    Object.assign(state, getDefaultState());
+  LOGOUT: (state) => {
+    state.token = null;
+    state.user = null;
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
   },
 };

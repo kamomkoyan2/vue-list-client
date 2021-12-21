@@ -216,9 +216,9 @@
           <Menu as="div" class="relative inline-block text-left">
             <div>
               <MenuButton
-                class="inline-flex justify-center z-100 w-full rounded-md border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+                class="inline-flex display-block justify-center z-100 w-full rounded-md border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
               >
-<!--                {{ user.username }}-->
+                 <span>{{ user.username}}</span>
                 <img
                   class="inline h-6 rounded-full"
                   src="https://avatars2.githubusercontent.com/u/24622175?s=60&amp;v=4"
@@ -560,7 +560,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("logout");
-      localStorage.removeItem('token');
+      localStorage.removeItem("token");
       this.$router.push("/auth/login");
     },
   },

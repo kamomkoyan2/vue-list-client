@@ -93,7 +93,7 @@ router.beforeEach((to, from, next) => {
   document.title = `${to.meta.title} | List App`;
 
   if (to.meta.auth) {
-    if (localStorage.token !== undefined) {
+    if (localStorage.token !== undefined && localStorage.token !== "null") {
       return next();
     } else {
       return next("auth/login");

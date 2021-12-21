@@ -1,18 +1,8 @@
-const getDefaultState = () => {
-  return {
-    userId: "",
-    list: {},
-  };
-};
-
 export default {
-  SET_TOKEN: (state, token) => {
-    state.token = token;
-  },
   SET_LIST: (state, list) => {
-    state.list = list;
+    state.lists = state.lists.unshift(list);
   },
-  RESET: (state) => {
-    Object.assign(state, getDefaultState());
+  GET_LISTS: (state, lists) => {
+    state.lists = lists;
   },
 };

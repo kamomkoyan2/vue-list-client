@@ -7,9 +7,7 @@ import store from "./store";
 import "../node_modules/nprogress/nprogress.css";
 import lazyPlugin from "vue3-lazy";
 import "./main.css";
-import Axios from "axios";
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -44,8 +42,11 @@ app.use(lazyPlugin, {
   error: "error.png",
 });
 
-// set auth header
-Axios.defaults.headers.common["Authorization"] = `Bearer ${store.state.token}`;
+const token = localStorage.getItem("token");
+
+if (token) {
+  axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+}
 
 app.use(VeeValidatePlugin);
 

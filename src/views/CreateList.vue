@@ -7,20 +7,22 @@
         <form action="" method="post">
           <div class="md:flex items-center mt-12">
             <div class="w-full flex flex-col">
-              <label class="font-semibold leading-none">title</label>
+              <label for="title" class="font-semibold leading-none">title</label>
               <input
                 type="text"
+                v-model="title"
                 class="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
               />
             </div>
           </div>
           <div>
             <div class="w-full flex flex-col mt-8">
-              <label class="font-semibold leading-none">Content</label>
-              <textarea
+              <label for="content" class="font-semibold leading-none">Content</label>
+              <input
+                v-model="content"
                 type="text"
                 class="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
-              ></textarea>
+              />
             </div>
           </div>
           <div class="flex items-center justify-center w-full">
@@ -57,13 +59,17 @@ export default {
           title: this.title,
           content: this.content,
         };
-        const response = await ListService.createList(credentials);
+        const response = await ListService.createList(credentials).catch(
+          (err) => {
+            if (err.response.status === 401) {
+              this.$store.dispatch("user/logout");
+              return this.$router.push("/auth/login");
+            }
+          }
+        );
 
-        const token = response.token;
-        const list = response.list;
-
-        this.$store.dispatch("list/createList", { token, list });
-        this.$router.push("/");
+        this.$store.dispatch("list/createList", response.list);
+        await this.$router.push("/");
       } catch (error) {
         console.log(error);
       }

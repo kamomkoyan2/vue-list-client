@@ -281,7 +281,7 @@ export default {
         };
         const response = await AuthService.signUp(credentials);
         console.log(response);
-        this.$router.push("/login");
+        this.$router.push("/auth/login");
       } catch (error) {
         console.log(error);
       }

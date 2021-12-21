@@ -145,10 +145,12 @@ export default {
         const response = await AuthService.login(credentials);
 
         const token = response.token;
+
         const user = response.user;
+        console.log(user)
 
         this.$store.dispatch("user/login", { token, user });
-        this.$router.push("/");
+        await this.$router.push("/");
       } catch (error) {
         console.log(error.message);
       }

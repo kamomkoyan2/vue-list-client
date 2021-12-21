@@ -1,6 +1,10 @@
 import axios from "axios";
 
 const url = "http://localhost:3000/api/v1/";
+// Axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(
+//   "token"
+// )}`;
+
 export default {
   login(credentials) {
     return axios

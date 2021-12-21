@@ -1,6 +1,17 @@
+import listService from "../../services/ListService";
+
 export default {
-  createList: ({ commit }, { token, list }) => {
-    commit("SET_TOKEN", token);
+  createList: ({ commit }, list) => {
     commit("SET_LIST", list);
+  },
+
+  getList: async ({ commit }) => {
+    const lists = await listService
+      .getListAxios()
+      .then((response) => response.data)
+      .catch((error) => {
+        console.log("error", error);
+      });
+    commit("GET_LISTS", lists);
   },
 };

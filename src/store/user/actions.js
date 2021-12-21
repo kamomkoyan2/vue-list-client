@@ -1,4 +1,4 @@
-import Axios from "axios";
+import axios from "axios";
 
 export default {
   // eslint-disable-next-line no-unused-vars
@@ -6,10 +6,11 @@ export default {
     console.log(token);
     commit("SET_TOKEN", token);
     commit("SET_USER", user);
+    console.log(user);
     // set auth header
-    Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    axios.defaults.headers.common["Authorization"] = token;
   },
   logout: ({ commit }) => {
-    commit("RESET", "");
+    commit("LOGOUT");
   },
 };
