@@ -5,4 +5,7 @@ export default {
   GET_LISTS: (state, lists) => {
     state.lists = lists;
   },
+  GET_LIST_ID: (state, list) => {
+    state.list = list;
+  },
 };

@@ -140,7 +140,6 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem natus nobis odi
 </template>
 
 <script>
-import AuthService from "../services/AuthService";
 
 export default {
   name: "UserSettings",
@@ -158,7 +157,6 @@ export default {
     this.username = this.$store.getters.getUser.username;
     this.firstName = this.$store.getters.getUser.firstName;
     this.lastName = this.$store.getters.getUser.lastName;
-    this.secretMessage = await AuthService.getSecretContent();
   },
 };
 </script>

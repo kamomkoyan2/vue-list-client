@@ -18,11 +18,10 @@
           <div>
             <div class="w-full flex flex-col mt-8">
               <label for="content" class="font-semibold leading-none">Content</label>
-              <input
+              <textarea
                 v-model="content"
-                type="text"
                 class="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
-              />
+              ></textarea>
             </div>
           </div>
           <div class="flex items-center justify-center w-full">

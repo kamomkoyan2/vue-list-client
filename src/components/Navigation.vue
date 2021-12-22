@@ -218,7 +218,7 @@
               <MenuButton
                 class="inline-flex display-block justify-center z-100 w-full rounded-md border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
               >
-                 <span>{{ user.username}}</span>
+                <span>{{ user.username }}</span>
                 <img
                   class="inline h-6 rounded-full"
                   src="https://avatars2.githubusercontent.com/u/24622175?s=60&amp;v=4"

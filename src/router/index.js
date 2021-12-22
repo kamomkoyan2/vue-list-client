@@ -8,6 +8,7 @@ import Subscription from "../views/Subscription";
 import CreateList from "../views/CreateList";
 import Register from "../views/Register";
 import Default from "../layouts/default";
+import List from "../views/List";
 
 const routes = [
   {
@@ -31,6 +32,15 @@ const routes = [
         meta: {
           auth: true,
           title: "Subscription",
+        },
+      },
+      {
+        path: "list/:id",
+        name: "List",
+        component: List,
+        meta: {
+          auth: true,
+          title: "List",
         },
       },
       {
