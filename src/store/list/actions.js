@@ -6,12 +6,15 @@ export default {
   },
 
   getList: async ({ commit }) => {
+
     const lists = await listService
       .getListAxios()
       .then((response) => response.data)
+
       .catch((error) => {
         console.log("error", error);
       });
+      console.log(lists)
     commit("GET_LISTS", lists);
   },
 };
