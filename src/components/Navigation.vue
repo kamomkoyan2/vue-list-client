@@ -561,7 +561,7 @@ export default {
     logout() {
       this.$store.dispatch("logout");
       localStorage.removeItem("token");
-      this.$router.push("/auth/login");
+      this.$router.push("/auth/login" );
     },
   },
 

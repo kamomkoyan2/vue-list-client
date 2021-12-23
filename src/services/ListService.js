@@ -1,9 +1,9 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3000/api/v1/";
+const url = "http://localhost:3000/api/v1/";
 export default {
   async createList(credentials) {
     return await axios
-      .post("list", credentials)
+      .post(url + "list", credentials)
       .then((response) => response.data)
       .catch((error) => {
         console.log("error", error);
@@ -11,10 +11,11 @@ export default {
   },
 
   async getListAxios() {
-    return await axios.get("list");
+    return await axios.get(url + "list");
   },
 
-  async getListById(url) {
-    return await axios.get(url);
+  async getListById(id) {
+    console.log(id)
+    return await axios.get(`${url}list/${id}`);
   },
 };

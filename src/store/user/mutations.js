@@ -12,5 +12,6 @@ export default {
     state.user = null;
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("list");
   },
 };

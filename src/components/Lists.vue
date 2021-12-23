@@ -5,13 +5,11 @@
   >
     <div
       v-for="list in lists"
-      :key="list.listId"
+      :key="list"
       class="p-4 grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-12"
     >
       <!--Card 1-->
-      <div
-        class="rounded overflow-hidden shadow-lg"
-      >
+      <div class="rounded overflow-hidden shadow-lg">
         <img
           class="w-full"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMypZGy2gePk1YPlIdQG1KcIyDQ8sISXsSHg&usqp=CAU"
@@ -46,9 +44,9 @@
 
 <script>
 import { mapGetters } from "vuex";
+
 export default {
   name: "Lists",
-
 
   computed: {
     ...mapGetters({
@@ -63,8 +61,7 @@ export default {
     };
   },
   async mounted() {
-    await this.$store.dispatch("list/getList");
+    await this.$store.dispatch("list/getList", this.$route.params.id);
   },
-
 };
 </script>

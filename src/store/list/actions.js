@@ -19,11 +19,11 @@ export default {
 
   getListById: async ({ commit }, id) => {
     const list = await listService
-      .getListById(`/list/${id}`)
+      .getListById(id)
       .then((response) => response.data)
       .catch((error) => {
         console.log("error", error);
       });
-    commit("GET_LIST_ID", list);
+    commit("GET_LIST", list);
   },
 };

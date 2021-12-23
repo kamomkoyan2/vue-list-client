@@ -40,6 +40,7 @@ const routes = [
         component: List,
         meta: {
           auth: true,
+          refresh: true,
           title: "List",
         },
       },
@@ -47,6 +48,15 @@ const routes = [
         path: ":catchAll(.*)",
         name: "Not Found",
         component: NotFound,
+      },
+      {
+        path: "settings",
+        name: "UserSettings",
+        component: UserSettings,
+        mata: {
+          auth: true,
+          title: "User Settings",
+        },
       },
       {
         path: "/create-list",
@@ -57,14 +67,7 @@ const routes = [
           title: "Create List",
         },
       },
-      {
-        path: "/settings",
-        name: "UserSettings",
-        component: UserSettings,
-        mata: {
-          title: "User Settings",
-        },
-      },
+
     ],
   },
   {
@@ -109,7 +112,7 @@ router.beforeEach((to, from, next) => {
       return next("auth/login");
     }
   }
-
   next();
 });
+
 export default router;
