@@ -9,4 +9,9 @@ export default {
     state.lists = list;
     localStorage.setItem("list", JSON.stringify(list));
   },
+
+  DELETE_LIST: (state, id) => {
+    let index = state.lists.findIndex((list) => list.id === id);
+    state.lists.splice(index, 1);
+  },
 };

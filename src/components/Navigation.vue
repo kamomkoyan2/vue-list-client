@@ -219,10 +219,11 @@
                 class="inline-flex display-block justify-center z-100 w-full rounded-md border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
               >
                 <span>{{ user.username }}</span>
-                <img
-                  class="inline h-6 rounded-full"
-                  src="https://avatars2.githubusercontent.com/u/24622175?s=60&amp;v=4"
-                />
+                <span
+                  class="user-icon text-white cursor-pointer w-10 relative float-right mr-3"
+                >
+                  <i class="fas fa-user p-1 bg-gray-800 rounded-full"> </i>
+                </span>
                 <ChevronDownIcon
                   class="-mr-1 ml-2 h-5 w-5"
                   aria-hidden="true"
@@ -239,7 +240,7 @@
               leave-to-class="transform opacity-0 scale-95"
             >
               <MenuItems
-                class="origin-top-right z-50 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                class="origin-top-right z-50 absolute right-0 mt-2 w-52 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
               >
                 <div class="py-1">
                   <MenuItem v-slot="{ active }">
@@ -247,10 +248,10 @@
                       class="flex justify-between"
                       href="/settings"
                       :class="[
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        active ? 'bg-gray-500 text-white' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       ]"
-                      >Account settings <font-awesome-icon icon="user-circle"
+                      >Account settings <font-awesome-icon icon="cog"
                     /></a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
@@ -258,7 +259,7 @@
                       class="flex justify-between"
                       href="#"
                       :class="[
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        active ? 'bg-gray-500 text-white' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       ]"
                       >Support <font-awesome-icon icon="question-circle"
@@ -268,7 +269,7 @@
                     <a
                       href="/create-list"
                       :class="[
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        active ? 'bg-gray-500 text-white' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       ]"
                       class="flex items-center bg-inherit justify-between text-black w-full"
@@ -281,7 +282,7 @@
                       class="flex justify-between"
                       href="#"
                       :class="[
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        active ? 'bg-gray-500 text-white' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       ]"
                       >License <font-awesome-icon icon="id-badge" />
@@ -295,9 +296,7 @@
                         value="Logout"
                         @click="logout"
                         :class="[
-                          active
-                            ? 'bg-gray-100 text-gray-900'
-                            : 'text-gray-700',
+                          active ? 'bg-gray-500 text-white' : 'text-gray-700',
                           'block w-full text-left px-4 py-2 text-sm',
                         ]"
                       >
@@ -361,23 +360,58 @@
                 </PopoverButton>
               </div>
             </div>
-            <div class="mt-6">
-              <nav class="grid gap-y-8">
+            <div v-if="token" class="mt-12">
+              <nav class="grid">
                 <a
-                  v-for="item in solutions"
-                  :key="item.name"
-                  :href="item.href"
-                  class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                  class="flex justify-between"
+                  href="/settings"
+                  :class="[
+                    active ? 'bg-gray-500 text-white' : 'text-gray-700',
+                    'block px-4 py-2 text-sm',
+                  ]"
+                  >Account settings <font-awesome-icon icon="cog"
+                /></a>
+                <a
+                  class="flex justify-between"
+                  href="#"
+                  :class="[
+                    active ? 'bg-gray-500 text-white' : 'text-gray-700',
+                    'block px-4 py-2 text-sm',
+                  ]"
+                  >Support <font-awesome-icon icon="question-circle"
+                /></a>
+
+                <a
+                  href="/create-list"
+                  :class="[
+                    active ? 'bg-gray-500 text-white' : 'text-gray-700',
+                    'block px-4 py-2 text-sm',
+                  ]"
+                  class="flex items-center bg-inherit justify-between text-black w-full"
                 >
-                  <component
-                    :is="item.icon"
-                    class="flex-shrink-0 h-6 w-6 text-indigo-600"
-                    aria-hidden="true"
-                  />
-                  <span class="ml-3 text-base font-medium text-gray-900">
-                    {{ item.name }}
-                  </span>
+                  Create List <font-awesome-icon icon="plus" />
                 </a>
+                <a
+                  class="flex justify-between"
+                  href="#"
+                  :class="[
+                    active ? 'bg-gray-500 text-white' : 'text-gray-700',
+                    'block px-4 py-2 text-sm',
+                  ]"
+                  >License <font-awesome-icon icon="id-badge" />
+                </a>
+                <button
+                  class="flex justify-between"
+                  type="submit"
+                  value="Logout"
+                  @click="logout"
+                  :class="[
+                    active ? 'bg-gray-500 text-white' : 'text-gray-700',
+                    'block w-full text-left px-4 py-2 text-sm',
+                  ]"
+                >
+                  Sign out <font-awesome-icon icon="sign-out-alt" />
+                </button>
               </nav>
             </div>
           </div>
@@ -405,23 +439,27 @@
                 {{ item.name }}
               </a>
             </div>
+
             <div>
-              <router-link
-                :to="{ name: 'Register' }"
-                class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-              >
-                Sign up
-              </router-link>
-              <p class="mt-6 text-center text-base font-medium text-gray-500">
-                Existing customer?
-                {{ " " }}
+              <div v-if="token"></div>
+              <div v-else>
                 <router-link
-                  :to="{ name: 'Login' }"
-                  class="text-indigo-600 hover:text-indigo-500"
+                  :to="{ name: 'Register' }"
+                  class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                 >
-                  Sign in
+                  Sign up
                 </router-link>
-              </p>
+                <p class="mt-6 text-center text-base font-medium text-gray-500">
+                  Existing customer?
+                  {{ " " }}
+                  <router-link
+                    :to="{ name: 'Login' }"
+                    class="text-indigo-600 hover:text-indigo-500"
+                  >
+                    Sign in
+                  </router-link>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -561,7 +599,7 @@ export default {
     logout() {
       this.$store.dispatch("logout");
       localStorage.removeItem("token");
-      this.$router.push("/auth/login" );
+      this.$router.push("/auth/login");
     },
   },
 
@@ -575,3 +613,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.user-icon {
+  margin: 0 10px;
+}
+</style>

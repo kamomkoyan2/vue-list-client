@@ -15,7 +15,12 @@ export default {
   },
 
   async getListById(id) {
-    console.log(id)
+    console.log(id);
     return await axios.get(`${url}list/${id}`);
+  },
+
+  async deleteListById(id) {
+    console.log(id);
+    return await axios.delete(`${url}list/${id}`);
   },
 };

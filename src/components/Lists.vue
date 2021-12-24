@@ -1,7 +1,6 @@
 <template>
   <div
-    class="p-10 grid-cols-3 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8"
-    style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr))"
+    class=" grid p-10   md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
   >
     <div
       v-for="list in lists"

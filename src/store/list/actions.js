@@ -26,4 +26,16 @@ export default {
       });
     commit("GET_LIST", list);
   },
+
+  deleteListById: async ({ commit }, id) => {
+    const list = await listService
+      .deleteListById(id)
+      .then((response) => {
+        response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    commit("DELETE_LIST", list);
+  },
 };

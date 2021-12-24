@@ -5,7 +5,7 @@
     class="max-w-screen-xl py-20 px-10 mx-auto flex flex-col md:flex-row md:gap-10"
   >
     <div
-      class="flex flex-col sm:flex-1 lg:max-w-sm bg-gradient-to-br from-[#4f45b8] to-purple-900 text-white p-10 md:rounded-3xl relative"
+      class="flex flex-col sm:flex-1 lg:max-w-sm bg-gradient-to-br from-black to-purple-900 text-white p-10 rounded-3xl relative"
     >
       <div class="text-4xl leading-9 pb-10">
         <p class="font-light">Save Your</p>
@@ -31,7 +31,7 @@
         your <span class="font-bold">free plan.</span>
       </div>
       <div class="flex flex-col lg:flex-row md:gap-10">
-        <div class="py-10 px-7 flex-1 bg-gray-100 md:rounded-3xl">
+        <div class="py-10 px-7 flex-1 bg-gray-100 md:pt-10 sm:my-8 rounded-3xl">
           <div class="flex justify-between flex-col pb-7">
             <div class="flex justify-between items-baseline">
               <p class="text-4xl font-bold leading-none">Lite</p>
@@ -63,7 +63,7 @@
         </div>
 
         <div
-          class="py-10 px-7 flex-1 bg-gradient-to-br from-blue to-gray-900 text-black md:rounded-3xl"
+          class="py-10 px-7 flex-1  bg-gradient-to-br from-black to-purple-300 sm:my-8 text-white rounded-3xl"
         >
           <div class="flex justify-between flex-col pb-7">
             <div class="flex justify-between items-baseline">
@@ -107,7 +107,7 @@ ul li {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>') no-repeat;
   background-size: auto;
   background-size: 1em 1.5em;
-  padding-left: 1.6rem;
+  padding-left: 3rem;
 }
 
 ul.white li {

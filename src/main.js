@@ -22,6 +22,10 @@ import {
   faPlus,
   faIdBadge,
   faQuestionCircle,
+  faEdit,
+  faTrashAlt,
+  faCog,
+  faEllipsisH
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -33,7 +37,11 @@ library.add(
   faUserCircle,
   faPlus,
   faIdBadge,
-  faQuestionCircle
+  faQuestionCircle,
+  faEdit,
+  faTrashAlt,
+  faCog,
+  faEllipsisH
 );
 
 const app = createApp(App);

@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div class="bg-gradient-to-b from-blue-800 to-blue-600 h-96"></div>
+    <div class="bg-gradient-to-b from-white to-gray-100 h-96"></div>
     <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
       <div class="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
         <p class="text-3xl font-bold leading-7 text-center">List</p>
@@ -11,7 +11,7 @@
               <input
                 type="text"
                 v-model="title"
-                class="leading-none text-gray-900 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
+                class="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"
               />
             </div>
           </div>
