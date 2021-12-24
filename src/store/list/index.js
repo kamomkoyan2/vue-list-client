@@ -4,7 +4,7 @@ import mutations from "./mutations";
 
 const state = {
   lists: [],
-  list: null,
+  list: JSON.parse(localStorage.getItem("list")),
 };
 
 export default {

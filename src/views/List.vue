@@ -112,12 +112,8 @@
                   class="text-pink-500 fill-current"
                 ></polygon>
               </svg>
-              <h4 class="text-xl font-bold text-white">
-                {{ list.title }}
-              </h4>
-              <p class="text-md font-light mt-2 text-white">
-                {{ list.content }}
-              </p>
+              <h4 class="text-xl font-bold text-white">{{ list.title }}</h4>
+              <p class="text-md font-light mt-2 text-white"></p>
             </blockquote>
           </div>
         </div>
@@ -203,10 +199,15 @@ export default {
       list: "list/getList",
     }),
   },
+  methods: {
+    reloadPage() {
+      window.location.reload();
+    },
+  },
 
   async mounted() {
     await this.$store.dispatch("list/getList");
-    await this.$store.dispatch("list/getListById");
+    await this.$store.dispatch("list/getListById", this.$route.params.id);
   },
 };
 </script>

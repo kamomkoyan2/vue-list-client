@@ -5,7 +5,8 @@ export default {
   GET_LISTS: (state, lists) => {
     state.lists = lists;
   },
-  GET_LIST_ID: (state, list) => {
-    state.list = list;
+  GET_LIST: (state, list) => {
+    state.lists = list;
+    localStorage.setItem("list", JSON.stringify(list));
   },
 };
