@@ -15,11 +15,11 @@
           alt="Mountain"
         />
         <div class="px-6 py-4">
-          <router-link :to="'/list/' + list.listId">
-            <div class="font-bold text-xl mb-2">{{ list.title }}</div>
+          <router-link :to="'/list/' + list?.listId">
+            <div class="font-bold text-xl mb-2">{{ list?.title }}</div>
           </router-link>
           <p class="text-gray-700 text-base">
-            {{ list.content }}
+            {{ list?.content }}
           </p>
         </div>
         <div class="px-6 pt-4 pb-2">
