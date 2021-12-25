@@ -166,8 +166,25 @@ export default {
 
     async deleteListById() {
       try {
-        this.$store.dispatch("list/deleteListById", this.$route.params.id);
-        await this.$router.push("/");
+        this.$swal({
+          title: "Delete this list ?",
+          text: "Are you sure? You won't be able to revert this!",
+          icon: "warning",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "Yes, Delete it!",
+        }).then((result) => {
+          if (result.value) {
+            this.$swal.fire(
+              "Deleted!",
+              "Your list has been deleted.",
+              "success"
+            );
+            this.$store.dispatch("list/deleteListById", this.$route.params.id);
+            this.$router.push("/");
+          }
+        });
       } catch (error) {
         console.log(error);
       }
