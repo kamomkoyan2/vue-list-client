@@ -7,7 +7,9 @@
         <form action="" method="post">
           <div class="md:flex items-center mt-12">
             <div class="w-full flex flex-col">
-              <label for="title" class="font-semibold leading-none">title</label>
+              <label for="title" class="font-semibold leading-none"
+                >title</label
+              >
               <input
                 type="text"
                 v-model="title"
@@ -17,7 +19,9 @@
           </div>
           <div>
             <div class="w-full flex flex-col mt-8">
-              <label for="content" class="font-semibold leading-none">Content</label>
+              <label for="content" class="font-semibold leading-none"
+                >Content</label
+              >
               <textarea
                 v-model="content"
                 class="h-40 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-blue-700 mt-4 bg-gray-100 border rounded border-gray-200"

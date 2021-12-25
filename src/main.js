@@ -11,9 +11,8 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import Paginate from "vuejs-paginate";
-import VueSweetalert2 from 'vue-sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
-import VueRs from "@appbaseio/reactivesearch-vue";
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 import {
   faUserSecret,
   faUserTie,
@@ -27,7 +26,7 @@ import {
   faEdit,
   faTrashAlt,
   faCog,
-  faEllipsisH
+  faEllipsisH,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -49,7 +48,6 @@ library.add(
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.component("paginate", Paginate);
-app.use(VueRs);
 app.use(VueSweetalert2);
 
 app.use(lazyPlugin, {

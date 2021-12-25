@@ -6,10 +6,8 @@
 
 <script>
 export default {
-  name: "auth.vue"
+  name: "auth.vue",
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

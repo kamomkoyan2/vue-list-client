@@ -13,8 +13,8 @@
               class="flex items-center justify-center p-12"
             >
               <div class="relative inline-block text-left dropdown">
-                <span class="rounded-md shadow-sm"
-                  ><button
+                <span class="rounded-md shadow-sm">
+                  <button
                     class="inline-flex justify-center outline-none w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
                     type="button"
                     aria-haspopup="true"
@@ -35,6 +35,8 @@
                     <div class="m-0 p-0">
                       <button
                         tabindex="0"
+                        type="submit"
+                        @click.prevent="editListById"
                         class="text-gray-700 hover:bg-neutral-200 hover:text-white flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
                         role="menuitem"
                       >
@@ -72,7 +74,7 @@
                   class="text-pink-500 fill-current"
                 ></polygon>
               </svg>
-              <h4 class="text-xl font-bold text-white">{{ list.title }}</h4>
+              <h4 class="text-xl font-bold text-white">{{ list?.title }}</h4>
               <p class="text-md font-light mt-2 text-white"></p>
             </blockquote>
           </div>
@@ -178,13 +180,22 @@ export default {
           if (result.value) {
             this.$swal.fire(
               "Deleted!",
-              "Your list has been deleted.",
+              "Your list has been deleted successfully!",
               "success"
             );
             this.$store.dispatch("list/deleteListById", this.$route.params.id);
+            localStorage.removeItem("list");
             this.$router.push("/");
           }
         });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async editListById() {
+      try {
+        this.$store.dispatch("list/editListById", this.$route.params.id);
       } catch (error) {
         console.log(error);
       }
@@ -194,6 +205,7 @@ export default {
   async mounted() {
     await this.$store.dispatch("list/getList");
     await this.$store.dispatch("list/getListById", this.$route.params.id);
+    await this.$store.dispatch("list/deleteListById", this.$route.params.id);
   },
 };
 </script>

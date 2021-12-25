@@ -67,7 +67,6 @@ const routes = [
           title: "Create List",
         },
       },
-
     ],
   },
   {

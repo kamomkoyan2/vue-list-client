@@ -38,4 +38,17 @@ export default {
       });
     commit("DELETE_LIST", list);
   },
+
+  editListById: async ({ commit }, id) => {
+    const list = await listService
+      .editListById(id)
+      .then((response) => {
+        response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    commit("EDIT_LIST", list);
+  },
 };

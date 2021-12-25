@@ -23,4 +23,8 @@ export default {
     console.log(id);
     return await axios.delete(`${url}list/${id}`);
   },
+
+  async editListById(id) {
+    return await axios.patch(`${url}list/${id}`);
+  },
 };

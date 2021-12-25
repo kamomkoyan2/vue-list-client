@@ -14,4 +14,8 @@ export default {
     let index = state.lists.findIndex((list) => list.id === id);
     state.lists.splice(index, 1);
   },
+
+  EDIT_LIST: (state, lists) => {
+    state.lists = lists;
+  },
 };

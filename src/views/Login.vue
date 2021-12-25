@@ -147,7 +147,7 @@ export default {
         const token = response.token;
 
         const user = response.user;
-        console.log(user)
+        console.log(user);
 
         this.$store.dispatch("user/login", { token, user });
         await this.$router.push("/");

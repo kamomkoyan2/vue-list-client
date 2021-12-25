@@ -4,12 +4,12 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ProfileSettingsSideBar from "../components/ProfileSettingsSideBar.vue"
+import ProfileSettingsSideBar from "../components/ProfileSettingsSideBar.vue";
 
 export default {
   name: "UserSettings",
   components: {
-    ProfileSettingsSideBar
+    ProfileSettingsSideBar,
   },
   computed: {
     ...mapGetters({
@@ -24,7 +24,6 @@ export default {
       lastName: "",
     };
   },
-
 };
 </script>
 

@@ -63,7 +63,7 @@
         </div>
 
         <div
-          class="py-10 px-7 flex-1  bg-gradient-to-br from-black to-purple-300 sm:my-8 text-white rounded-3xl"
+          class="py-10 px-7 flex-1 bg-gradient-to-br from-black to-purple-300 sm:my-8 text-white rounded-3xl"
         >
           <div class="flex justify-between flex-col pb-7">
             <div class="flex justify-between items-baseline">
@@ -101,10 +101,9 @@ export default {
 </script>
 
 <style scoped>
-
-
 ul li {
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>') no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>')
+    no-repeat;
   background-size: auto;
   background-size: 1em 1.5em;
   padding-left: 3rem;
